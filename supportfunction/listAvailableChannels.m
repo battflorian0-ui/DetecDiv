@@ -28,6 +28,7 @@ for i=1:numel(listproj.Project)
         listcha={};
 
         for k=1:numel(roiobj)
+            tmm=roiobj(k).display.channel;
             if strcmp(roiobj(k).display.channel,' ')
                 continue;
             end
@@ -36,11 +37,14 @@ for i=1:numel(listproj.Project)
             if sum(contains(roiobj(k).display.channel,'-'))>0
                 continue;
             end
+          %  aa= roiobj(k).display.channel
             listcha=[ listcha  roiobj(k).display.channel];
         end
 
+
         list=[list unique(listcha) ];
     end
+
 
     for j=1:numel(listproj.Projectclassi)
 
@@ -67,6 +71,7 @@ for i=1:numel(listproj.Project)
                 listcha=[ listcha  roiobj(k).display.channel];
             end
             %  listcha
+   
             list=[list unique(listcha) ];
         end
 
@@ -95,10 +100,10 @@ listout={};
 
 cc=1;
 for i=1:numel(list)
- if sum(contains(list{i},' '))>0
+% if sum(contains(list{i},' '))>0
 
-                continue;
- end
+%                continue;
+% end
   if sum(contains(list{i},'-'))>0
  
                 continue;
@@ -107,3 +112,4 @@ for i=1:numel(list)
   listout{cc}=list{i};  
 cc=cc+1;
 end
+
